@@ -254,6 +254,31 @@
 
   .sidebar-content {
     .main-menu {
+      .augmented-testing {
+        margin: 0;
+        &:before {
+          width: 30px;
+          height: 25px;
+          background-image: url("../../img/augmented_testing.png");
+        }
+      }
+      .security {
+        margin: 0;
+        &:before {
+          width: 30px;
+          height: 25px;
+          background-image: url("../../img/security.png");
+        }
+      }
+      .performance {
+        margin: 0;
+        &:before {
+          width: 30px;
+          height: 25px;
+          background-image: url("../../img/performance.png");
+        }
+      }
+
       .new-year-dashboard {
         &:before {
           width: 30px;
@@ -324,6 +349,19 @@
       }
 
       .new-year-icon {
+        display: inline-block;
+        min-height: 25px;
+        &:before {
+          content: '';
+          display: inline-block;
+          background-size: cover;
+        }
+
+        @media (max-width: $SCREEN_XS_MAX) {
+          width: 30px;
+        }
+      }
+      .praegus-icon {
         display: inline-block;
         min-height: 25px;
         &:before {

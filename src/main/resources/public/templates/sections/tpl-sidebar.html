@@ -4,7 +4,8 @@
         <i class="sprite sprite-logo"></i>
         <!-- <span>< % = data.text.topMenu.reportPortal % ></span> -->
     </a>
-    <nav data-js-scroll-container <% if(!data.isAdmin) { %> class="for-common-user" <% }%> >
+    <nav data-js-scroll-container
+    <% if(!data.isAdmin) { %> class="for-common-user" <% }%> >
 
     <ul class="main-menu">
         <% if(false){ %>
@@ -18,9 +19,9 @@
         <li>
             <a href="#<%- data.projectUrl %>/dashboard" id="dashboard">
                 <% if(data.isNewYear) { %>
-                    <i class="new-year-icon new-year-dashboard"></i>
+                <i class="new-year-icon new-year-dashboard"></i>
                 <% } else { %>
-                    <i class="rp-icons rp-icons-dashboard fsize-18"></i>
+                <i class="rp-icons rp-icons-dashboard fsize-18"></i>
                 <% } %>
                 <span><%= data.text.topMenu.dashboard %></span>
             </a>
@@ -31,9 +32,9 @@
             %>
             <a href="<%- launchesUrl %>" id="launches">
                 <% if(data.isNewYear) { %>
-                    <i class="new-year-icon new-year-launches"></i>
+                <i class="new-year-icon new-year-launches"></i>
                 <% } else { %>
-                    <i class="rp-icons rp-icons-launches fsize-23"></i>
+                <i class="rp-icons rp-icons-launches fsize-23"></i>
                 <% } %>
                 <span><%= data.text.topMenu.launches %></span>
             </a>
@@ -41,25 +42,46 @@
         <li>
             <a href="#<%- data.projectUrl %>/filters" id="filters">
                 <% if(data.isNewYear) { %>
-                    <i class="new-year-icon new-year-filters"></i>
+                <i class="new-year-icon new-year-filters"></i>
                 <% } else { %>
-                    <i class="rp-icons rp-icons-filter fsize-20"></i>
+                <i class="rp-icons rp-icons-filter fsize-20"></i>
                 <% } %>
                 <span><%= data.text.topMenu.filters %></span>
             </a>
         </li>
+        <li>
+            <a href="#<%- data.projectUrl %>/augmented-testing" id="augmented-testing">
+                <i class="praegus-icon augmented-testing"></i>
+                <span>Augmented testing</span>
+            </a>
+        </li>
+        <li>
+            <a href="#<%- data.projectUrl %>/security" id="security">
+                <i class="praegus-icon security"></i>
+                <span>Security</span>
+            </a>
+        </li>
+        <li>
+            <a href="#<%- data.projectUrl %>/performance" id="performance">
+                <i class="praegus-icon performance"></i>
+                <span>Performance</span>
+            </a>
+        </li>
+
+
         <% if (data.canDebug) { %>
         <li>
             <a href="#<%- data.projectUrl %>/userdebug/all" id="userdebug">
                 <% if(data.isNewYear) { %>
-                    <i class="new-year-icon new-year-debug"></i>
+                <i class="new-year-icon new-year-debug"></i>
                 <% } else { %>
-                    <i class="rp-icons rp-icons-eye fsize-17"></i>
+                <i class="rp-icons rp-icons-eye fsize-17"></i>
                 <% } %>
                 <span><%= data.text.topMenu.debug %></span>
             </a>
         </li>
         <% } %>
+
     </ul>
     <ul class="user-menu">
         <li class="col-xs-6 col-sm-12">
