@@ -95,20 +95,22 @@ define(function (require) {
 
         updateActiveLink: function () {
             this.clearActives();
-            this.currentHash = '#' + Backbone.history.getFragment().split('?')[0].split('/', 2).join('/');
-            if (this.currentHash === '#' + this.projectUrl) {
-                this.currentHash += '/dashboard';
+            if (!this.currentHash.includes('at-ui')) {
+                this.currentHash = '#' + Backbone.history.getFragment().split('?')[0].split('/', 2).join('/');
+                if (this.currentHash === '#' + this.projectUrl) {
+                    this.currentHash += '/dashboard';
+                }
+                if (this.currentHash === '#' + this.projectUrl + '/') {
+                    this.currentHash += 'dashboard';
+                }
+                if (this.currentHash === '#administrate') {
+                    this.currentHash += '/projects';
+                }
+                if (this.currentHash === '#administrate/project-details') {
+                    this.currentHash = '#administrate/projects';
+                }
+                this.$el.find('a[href^="' + this.currentHash + '"]', this.$el).addClass('active');
             }
-            if (this.currentHash === '#' + this.projectUrl + '/') {
-                this.currentHash += 'dashboard';
-            }
-            if (this.currentHash === '#administrate') {
-                this.currentHash += '/projects';
-            }
-            if (this.currentHash === '#administrate/project-details') {
-                this.currentHash = '#administrate/projects';
-            }
-            this.$el.find('a[href^="' + this.currentHash + '"]', this.$el).addClass('active');
         },
 
         getLastActive: function () {
@@ -122,37 +124,37 @@ define(function (require) {
         onClickSidebarLink: function (e) {
             e.preventDefault();
             switch ($(e.currentTarget).attr('id')) {
-            case 'dashboard': {
-                config.trackingDispatcher.trackEventNumber(1);
-                break;
-            }
-            case 'filters': {
-                config.trackingDispatcher.trackEventNumber(2);
-                break;
-            }
-            case 'userdebug': {
-                config.trackingDispatcher.trackEventNumber(3);
-                break;
-            }
-            case 'projectsSection': {
-                config.trackingDispatcher.trackEventNumber(502);
-                break;
-            }
-            case 'usersSection': {
-                config.trackingDispatcher.trackEventNumber(503);
-                break;
-            }
-            case 'settingsSection': {
-                config.trackingDispatcher.trackEventNumber(504);
-                break;
-            }
-            default: {
-                break;
-            }
+                case 'dashboard': {
+                    config.trackingDispatcher.trackEventNumber(1);
+                    break;
+                }
+                case 'filters': {
+                    config.trackingDispatcher.trackEventNumber(2);
+                    break;
+                }
+                case 'userdebug': {
+                    config.trackingDispatcher.trackEventNumber(3);
+                    break;
+                }
+                case 'projectsSection': {
+                    config.trackingDispatcher.trackEventNumber(502);
+                    break;
+                }
+                case 'usersSection': {
+                    config.trackingDispatcher.trackEventNumber(503);
+                    break;
+                }
+                case 'settingsSection': {
+                    config.trackingDispatcher.trackEventNumber(504);
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
 
             this.closeMenu();
-            config.router.navigate($(e.currentTarget).attr('href'), { trigger: true });
+            config.router.navigate($(e.currentTarget).attr('href'), {trigger: true});
         },
         closeMenu: function () {
             this.$bodyElement.removeClass('menu-open');

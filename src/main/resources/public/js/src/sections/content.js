@@ -36,6 +36,7 @@ define(function (require) {
     var ProjectInfo = require('projectinfo');
     var Member = require('projectMembers/MembersPageView');
     var Profile = require('userProfile/UserProfilePage');
+    var AugmentedTestingPage = require('augmentedTesting/AugmentedTestingPage');
 
     // Administrate modules
     var Projects = require('adminProjects/ProjectsPageView');
@@ -138,6 +139,8 @@ define(function (require) {
                 return ProjectInfo;
             case 'api':
                 return ApiPage;
+            case 'augmented-testing':
+                return LaunchPage;
             default:
                 break;
             }
